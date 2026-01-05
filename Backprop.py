@@ -88,19 +88,3 @@ def backpropagator(X, y, learning_rate, iterations, layers, neurons_array, activ
                     dZ = dA * relu_derivative(Z_values[layer-1])
 
     return param   
-# Example usage
-
-X = np.random.randint(1, 25, size=(10, 28))  
-y=np.array([[0],[1],[0],[1],[0],[1],[0],[1],[0],[0]])
-
-learning_rate = 0.001
-iterations = 1000
-layers = 3
-neurons_array = [28, 14, 1]  # 3 layers with 8, 4, and 1 neurons respectively
-activation_functions = ['relu', 'relu', 'sigmoid']
-trained_parameters = backpropagator(X, y, learning_rate, iterations, layers, neurons_array, activation_functions)
-print("Trained Parameters:")
-for layer in range(layers):
-    print(f"Layer {layer+1} Weights:\n", trained_parameters[layer]["W"])
-    print(f"Layer {layer+1} Biases:\n", trained_parameters[layer]["b"])
-    
